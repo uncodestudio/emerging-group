@@ -223,7 +223,7 @@
 .dl-story .dl-t3bar i{display:block;height:100%;border-radius:4px;background:var(--dl-gold)}
 
 /* ---------- conclusion ---------- */
-.dl-story .dl-outro{position:relative;overflow:hidden;padding:11vh 0 8vh;text-align:center;background:var(--dl-navy)}
+.dl-story .dl-outro{position:relative;overflow:hidden;padding:11vh 0 8vh;text-align:center;background:var(--dl-navy);border-radius:24px}
 .dl-story .dl-outro .dl-ring{bottom:-120px;left:-60px;width:260px;height:260px;border-color:var(--dl-peri);opacity:.3}
 .dl-story .dl-outro .dl-eyebrow{color:var(--dl-gold)}
 .dl-story .dl-outro h2{margin:0;font-size:clamp(28.8px,4vw,43.2px);font-weight:800;line-height:1.05;color:#fff;text-wrap:balance}
