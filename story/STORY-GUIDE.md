@@ -295,12 +295,9 @@ Cette annexe n'est pas pour Claude lors de la rédaction d'un article.
 |---|---|
 | `modules/dl-story.js` (racine du dépôt) | Module ES. Décore le HTML : barres, barre empilée, lignes segmentées, scènes sticky, carte. Expose `window.DLStory.version`. Ne fait rien si la page ne contient pas de `.dl-story` |
 | `css/dl-story.css` (racine du dépôt) | Tout le style, 100 % préfixé `.dl-story .dl-*`, unités en px (indépendant du `font-size` racine du site). Chargé par le module, uniquement si la page contient un `.dl-story` |
-| `data/countries-110m.json` | Topologie des pays (chargée seulement si une carte existe) |
-| `embeds/*.html` | Exemple : l'article d'origine en 4 embeds |
-| `preview.html` | Maquette locale du template (à servir en HTTP : `python3 -m http.server`) |
-| `tools/check_story.py` | Vérifie qu'un embed respecte ce guide |
-| `tools/build_preview.py` | Régénère `preview.html` à partir des embeds |
-| `tools/render_test.py` | Test de rendu Playwright (sticky, scènes, carte, mobile, sans JS) |
+| `data/countries-110m.json` (racine du dépôt) | Topologie des pays, dépendance technique du module (chargée seulement si une carte existe). Jamais à modifier |
+| `story/template.html` | Exemple complet, à ouvrir dans un navigateur pour voir à quoi ressemble un article fini (sert en HTTP, pas en double-clic : `python3 -m http.server`) |
+| `story/STORY-GUIDE.md` | Ce fichier. À donner au Claude du client comme contexte avant qu'il écrive un article |
 
 ## B. Hébergement (CDN versionné)
 
@@ -340,11 +337,7 @@ Toujours **épingler la version** (`@1.0.0`) : une modification du kit passe par
 
 ## E. Vérifier un article avant publication
 
-```bash
-python3 tools/check_story.py embed1.html embed2.html
-```
-
-Contrôle : début/fin de l'embed, 50 000 caractères, balises et classes autorisées, `style` interdit, `data-v` numériques, `data-c` valides, un seul `h1`, pas de saut de niveau de titre, un `figure.dl-scene` par étape, balises fermées. Ensuite, test visuel dans le Designer en aperçu, puis sur la page publiée avec les JS désactivés (le texte et les tableaux doivent rester lisibles).
+Pas d'outil automatique : relire à l'œil que l'embed respecte ce guide (balises et classes de la liste en F, pas de `style=""`, `data-v` numériques, un seul `figure.dl-scene` par étape, aucun `h1`/`header`). Puis test visuel dans le Designer en aperçu, et sur la page publiée avec le JS désactivé (le texte et les tableaux doivent rester lisibles).
 
 ## F. Liste des classes autorisées (générée)
 
