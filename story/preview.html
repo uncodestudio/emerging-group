@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>dl-story kit | prévisualisation locale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+<script>document.documentElement.classList.add('dl-js')</script>
+<style>body{margin:0}</style>
+</head>
+<body>
+<div class="dl-story">
+  <header class="dl-hero">
+    <div class="dl-dots"></div><div class="dl-ring dl-ring-a"></div><div class="dl-ring dl-ring-b"></div>
+    <div class="dl-wrap">
+      <p class="dl-eyebrow">Emerging&nbsp;·&nbsp;Global Digital Leaders 2026</p>
+      <h1 class="dl-title"><span class="dl-thin">The geography of</span> digital <em>talent</em></h1>
+      <p class="dl-dek">We gathered 194,482 of the world's digital leaders across 160 countries - and looked at what their jobs reveal about where different kinds of talent gather.</p>
+      <ul class="dl-kpis">
+        <li><b>194,482</b><span>Profiles</span></li>
+        <li><b>160</b><span>Countries</span></li>
+        <li><b>9</b><span>World regions</span></li>
+        <li><b>22</b><span>Job families</span></li>
+      </ul>
+      <p class="dl-scrollcue"><span class="dl-bounce" aria-hidden="true">↓</span> Scroll to begin</p>
+    </div>
+  </header>
+
+  <section class="dl-scrolly" id="the-dataset">
+    <div class="dl-step" data-n="01">
+      <h2>It begins with a number</h2>
+      <p>Every map of "digital talent" starts with one. Ours is <span class="dl-hl">194,482</span> working professionals - drawn from 213,732 profiles, reaching into 160 countries.</p>
+      <p>But a headcount is the dullest thing about them. What matters is what they <span class="dl-hl">do</span> - and where each kind of talent gathers.</p>
+      <figure class="dl-scene">
+        <figcaption><span class="dl-cap">The dataset</span><strong class="dl-scene-title">Who's in the pool</strong></figcaption>
+        <div class="dl-body">
+          <div class="dl-bignum"><b>194,482</b><span>digital-leader profiles</span></div>
+          <p class="dl-poolcap">from 213,732 career profiles scraped - the ones with a current job on file</p>
+          <ul class="dl-poolmeta">
+            <li><b>160</b><span>countries</span></li>
+            <li><b>9</b><span>regions</span></li>
+            <li><b>22</b><span>job families</span></li>
+          </ul>
+        </div>
+      </figure>
+    </div>
+
+    <div class="dl-step" data-n="02">
+      <h2>What the pool is made of</h2>
+      <p>Two forces lead the pool: <span class="dl-hl">engineering &amp; technology</span> (26%) and <span class="dl-hl">leadership &amp; founders</span> (26%), with <span class="dl-hl">data &amp; AI</span> close behind (16%) - three of the twenty-two job families we track in depth.</p>
+      <p>This is our starting point. Everything else is compared to it.</p>
+      <figure class="dl-scene">
+        <figcaption><span class="dl-cap">What the pool is made of</span><strong class="dl-scene-title">Engineers, leaders and data</strong><span class="dl-sub">Share of all profiles, by broad category</span></figcaption>
+        <div class="dl-body">
+          <ul class="dl-stackbar">
+            <li data-v="26.4" data-c="navy">Engineering &amp; Technology <b>26.4%</b></li>
+            <li data-v="26.1" data-c="peri">Leadership &amp; Founders <b>26.1%</b></li>
+            <li data-v="16.3" data-c="gold">Data &amp; AI <b>16.3%</b></li>
+            <li data-v="15.8" data-c="salmon">Business &amp; Ops <b>15.8%</b></li>
+            <li data-v="15.4" data-c="soft">Other <b>15.4%</b></li>
+          </ul>
+        </div>
+      </figure>
+    </div>
+
+    <div class="dl-step" data-n="03">
+      <h2>The question this article asks</h2>
+      <p>To read the map, this article asks one thing of every place: not "where are the most people", but "<span class="dl-hl">what is it particularly good at?</span>" For each country we take the slice of its talent in a job and compare it to the world's slice.</p>
+      <p>Finance is about 3% of talent worldwide. In Hong Kong it's closer to 14% - <span class="dl-hl">five times</span> the concentration. That gap is a signature, and it's what the rest of this story is built on.</p>
+      <figure class="dl-scene">
+        <figcaption><span class="dl-cap">The lens</span><strong class="dl-scene-title">What is each place particularly good at?</strong><span class="dl-sub">The share of a place's talent in a job, next to the world's share</span></figcaption>
+        <div class="dl-body">
+          <ul class="dl-bars dl-bars-lg" data-max="16">
+            <li data-v="3"><span class="dl-lab">Worldwide</span><b class="dl-val">3%</b></li>
+            <li data-v="14" data-hot><span class="dl-lab">Hong Kong</span><b class="dl-val">14%</b></li>
+          </ul>
+          <p class="dl-callout">Finance is about <b>5×</b> more concentrated in Hong Kong than in the world.</p>
+        </div>
+      </figure>
+    </div>
+  </section>
+</div>
+
+<div class="dl-story">
+  <section class="dl-block" id="the-map">
+    <div class="dl-dots"></div>
+    <div class="dl-wrap">
+      <p class="dl-eyebrow">Concentration</p>
+      <h2>The world, by what it's best at</h2>
+      <p class="dl-lead">Every country is coloured by its world region. Hover or tap any country to see the three <b>job functions</b> it is most concentrated in - what its digital workforce actually <i>does</i> - versus the global average. This is share-inside-the-place, so big and small countries are read the same way. Seniority and founder density are a separate question, shown lower down.</p>
+
+      <div class="dl-map" data-viz="map" data-label="World map coloured by region; hover a country for its top three job specialisations">
+        <details class="dl-data">
+          <summary>Data: top 3 job specialisations for 51 countries and 9 regions</summary>
+          <p>Each figure is a concentration: the share of the place's talent in a job family divided by the world's share. 1.00× is the world average.</p>
+          <table class="dl-mapdata">
+            <thead><tr><th>Country</th><th>Region</th><th>Profiles</th><th>Top specialisation</th><th>2nd</th><th>3rd</th></tr></thead>
+            <tbody>
+            <tr data-id="784"><th scope="row">United Arab Emirates</th><td>Middle East</td><td>1,701</td><td>Data &amp; AI 1.62×</td><td>Data &amp; analytics 1.54×</td><td>Sales &amp; BD 1.22×</td></tr>
+            <tr data-id="032"><th scope="row">Argentina</th><td>Latin America</td><td>1,843</td><td>Security 2.29×</td><td>Project delivery 1.65×</td><td>Design 1.50×</td></tr>
+            <tr data-id="036"><th scope="row">Australia</th><td>Oceania</td><td>2,805</td><td>Security 1.34×</td><td>Data &amp; analytics 1.32×</td><td>Consulting 1.30×</td></tr>
+            <tr data-id="040"><th scope="row">Austria</th><td>Western Europe</td><td>899</td><td>Project delivery 2.73×</td><td>Product 1.92×</td><td>HR &amp; talent 1.83×</td></tr>
+            <tr data-id="056"><th scope="row">Belgium</th><td>Western Europe</td><td>1,251</td><td>Project delivery 3.76×</td><td>Consulting 2.56×</td><td>Security 2.46×</td></tr>
+            <tr data-id="076"><th scope="row">Brazil</th><td>Latin America</td><td>9,763</td><td>Data &amp; analytics 1.44×</td><td>Software eng. 1.22×</td><td>Product 1.01×</td></tr>
+            <tr data-id="124"><th scope="row">Canada</th><td>North America</td><td>4,352</td><td>Research 1.33×</td><td>Data &amp; AI 1.19×</td><td>Data &amp; analytics 1.18×</td></tr>
+            <tr data-id="756"><th scope="row">Switzerland</th><td>Western Europe</td><td>1,204</td><td>HR &amp; talent 1.82×</td><td>Research 1.80×</td><td>Data &amp; AI 1.53×</td></tr>
+            <tr data-id="152"><th scope="row">Chile</th><td>Latin America</td><td>1,252</td><td>Security 1.64×</td><td>Data &amp; analytics 1.63×</td><td>Finance 1.60×</td></tr>
+            <tr data-id="156"><th scope="row">China</th><td>Asia</td><td>5,536</td><td>Finance 2.37×</td><td>Research 2.15×</td><td>Sales &amp; BD 2.11×</td></tr>
+            <tr data-id="170"><th scope="row">Colombia</th><td>Latin America</td><td>2,306</td><td>Project delivery 1.40×</td><td>Data &amp; analytics 1.36×</td><td>Operations 1.21×</td></tr>
+            <tr data-id="203"><th scope="row">Czechia</th><td>Eastern Europe</td><td>437</td><td>Product 1.65×</td><td>Sales &amp; BD 1.29×</td><td>Other eng. 1.13×</td></tr>
+            <tr data-id="276"><th scope="row">Germany</th><td>Western Europe</td><td>3,334</td><td>HR &amp; talent 1.68×</td><td>Data &amp; AI 1.58×</td><td>Consulting 1.40×</td></tr>
+            <tr data-id="208"><th scope="row">Denmark</th><td>Western Europe</td><td>1,143</td><td>Project delivery 2.62×</td><td>Consulting 2.24×</td><td>Operations 2.03×</td></tr>
+            <tr data-id="818"><th scope="row">Egypt</th><td>North Africa</td><td>2,884</td><td>Data &amp; AI 1.44×</td><td>Software eng. 1.38×</td><td>Data &amp; analytics 1.27×</td></tr>
+            <tr data-id="724"><th scope="row">Spain</th><td>Western Europe</td><td>2,683</td><td>Data &amp; AI 1.75×</td><td>Data &amp; analytics 1.57×</td><td>Project delivery 1.46×</td></tr>
+            <tr data-id="246"><th scope="row">Finland</th><td>Western Europe</td><td>1,027</td><td>HR &amp; talent 2.35×</td><td>Operations 2.22×</td><td>Sales &amp; BD 1.93×</td></tr>
+            <tr data-id="250"><th scope="row">France</th><td>Western Europe</td><td>3,904</td><td>Consulting 2.08×</td><td>Data &amp; AI 1.54×</td><td>Data &amp; analytics 1.47×</td></tr>
+            <tr data-id="826"><th scope="row">United Kingdom</th><td>Western Europe</td><td>4,539</td><td>Data &amp; AI 1.29×</td><td>Research 1.17×</td><td>Finance 1.10×</td></tr>
+            <tr data-id="300"><th scope="row">Greece</th><td>Western Europe</td><td>348</td><td>Data &amp; analytics 2.50×</td><td>Data &amp; AI 1.86×</td><td>Software eng. 0.94×</td></tr>
+            <tr data-id="348"><th scope="row">Hungary</th><td>Eastern Europe</td><td>443</td><td>Project delivery 2.33×</td><td>Consulting 1.79×</td><td>Research 1.42×</td></tr>
+            <tr data-id="360"><th scope="row">Indonesia</th><td>Asia</td><td>707</td><td>Marketing 3.00×</td><td>Design 2.60×</td><td>Product 1.48×</td></tr>
+            <tr data-id="356"><th scope="row">India</th><td>Asia</td><td>13,962</td><td>Software eng. 1.51×</td><td>HR &amp; talent 1.22×</td><td>Other eng. 1.06×</td></tr>
+            <tr data-id="372"><th scope="row">Ireland</th><td>Western Europe</td><td>1,875</td><td>Legal 2.02×</td><td>Finance 1.77×</td><td>Sales &amp; BD 1.42×</td></tr>
+            <tr data-id="376"><th scope="row">Israel</th><td>Middle East</td><td>4,212</td><td>Software eng. 1.79×</td><td>Product 1.18×</td><td>Security 1.00×</td></tr>
+            <tr data-id="380"><th scope="row">Italy</th><td>Western Europe</td><td>1,879</td><td>Project delivery 3.55×</td><td>Consulting 1.94×</td><td>HR &amp; talent 1.92×</td></tr>
+            <tr data-id="400"><th scope="row">Jordan</th><td>Middle East</td><td>236</td><td>Software eng. 1.49×</td><td>Data &amp; AI 1.44×</td><td>Data &amp; analytics 1.38×</td></tr>
+            <tr data-id="392"><th scope="row">Japan</th><td>Asia</td><td>1,913</td><td>HR &amp; talent 2.98×</td><td>Finance 2.81×</td><td>Research 2.74×</td></tr>
+            <tr data-id="404"><th scope="row">Kenya</th><td>Sub-Saharan Africa</td><td>518</td><td>Data &amp; analytics 1.96×</td><td>Operations 1.14×</td><td>Other eng. 1.09×</td></tr>
+            <tr data-id="410"><th scope="row">South Korea</th><td>Asia</td><td>1,308</td><td>Research 4.28×</td><td>Sales &amp; BD 2.56×</td><td>Legal 2.42×</td></tr>
+            <tr data-id="144"><th scope="row">Sri Lanka</th><td>Asia</td><td>234</td><td>Software eng. 2.04×</td><td>Data &amp; analytics 0.76×</td><td></td></tr>
+            <tr data-id="442"><th scope="row">Luxembourg</th><td>Western Europe</td><td>257</td><td>Legal 10.46×</td><td>Finance 5.75×</td><td>Operations 3.06×</td></tr>
+            <tr data-id="504"><th scope="row">Morocco</th><td>North Africa</td><td>1,025</td><td>Data &amp; analytics 1.79×</td><td>Software eng. 1.45×</td><td>Data &amp; AI 1.17×</td></tr>
+            <tr data-id="484"><th scope="row">Mexico</th><td>Latin America</td><td>3,044</td><td>Operations 2.10×</td><td>Project delivery 1.64×</td><td>Marketing 1.43×</td></tr>
+            <tr data-id="458"><th scope="row">Malaysia</th><td>Asia</td><td>374</td><td>Product 1.49×</td><td>Data &amp; analytics 1.41×</td><td>Other eng. 1.19×</td></tr>
+            <tr data-id="566"><th scope="row">Nigeria</th><td>Sub-Saharan Africa</td><td>696</td><td>Design 2.64×</td><td>Product 1.77×</td><td>Marketing 1.54×</td></tr>
+            <tr data-id="528"><th scope="row">Netherlands</th><td>Western Europe</td><td>2,072</td><td>Consulting 1.63×</td><td>Data &amp; AI 1.36×</td><td>Operations 1.23×</td></tr>
+            <tr data-id="578"><th scope="row">Norway</th><td>Western Europe</td><td>371</td><td>Operations 3.60×</td><td>Consulting 2.69×</td><td>Project delivery 2.64×</td></tr>
+            <tr data-id="554"><th scope="row">New Zealand</th><td>Oceania</td><td>244</td><td>Data &amp; analytics 1.56×</td><td>Software eng. 1.42×</td><td>Other eng. 1.08×</td></tr>
+            <tr data-id="586"><th scope="row">Pakistan</th><td>Asia</td><td>666</td><td>Marketing 1.83×</td><td>Design 1.62×</td><td>Software eng. 1.32×</td></tr>
+            <tr data-id="604"><th scope="row">Peru</th><td>Latin America</td><td>845</td><td>Data &amp; analytics 2.35×</td><td>Finance 1.33×</td><td>Product 1.18×</td></tr>
+            <tr data-id="608"><th scope="row">Philippines</th><td>Asia</td><td>257</td><td>Data &amp; analytics 1.52×</td><td>Software eng. 1.26×</td><td>Data &amp; AI 0.66×</td></tr>
+            <tr data-id="616"><th scope="row">Poland</th><td>Eastern Europe</td><td>1,497</td><td>Project delivery 1.77×</td><td>Product 1.26×</td><td>Software eng. 1.15×</td></tr>
+            <tr data-id="620"><th scope="row">Portugal</th><td>Western Europe</td><td>1,362</td><td>Design 1.83×</td><td>Consulting 1.65×</td><td>Project delivery 1.62×</td></tr>
+            <tr data-id="642"><th scope="row">Romania</th><td>Eastern Europe</td><td>728</td><td>Software eng. 2.15×</td><td>Data &amp; AI 0.70×</td><td>Data &amp; analytics 0.68×</td></tr>
+            <tr data-id="682"><th scope="row">Saudi Arabia</th><td>Middle East</td><td>1,972</td><td>Security 3.47×</td><td>Finance 2.68×</td><td>Legal 2.57×</td></tr>
+            <tr data-id="752"><th scope="row">Sweden</th><td>Western Europe</td><td>926</td><td>Data &amp; AI 1.29×</td><td>Other eng. 1.27×</td><td>Data &amp; analytics 1.10×</td></tr>
+            <tr data-id="792"><th scope="row">Turkey</th><td>Middle East</td><td>1,568</td><td>Data &amp; AI 1.74×</td><td>Software eng. 1.31×</td><td>Data &amp; analytics 1.01×</td></tr>
+            <tr data-id="804"><th scope="row">Ukraine</th><td>Eastern Europe</td><td>306</td><td>Software eng. 1.67×</td><td>Data &amp; AI 0.96×</td><td>Data &amp; analytics 0.77×</td></tr>
+            <tr data-id="840"><th scope="row">United States</th><td>North America</td><td>20,409</td><td>Software eng. 1.23×</td><td>Research 1.22×</td><td>Legal 1.12×</td></tr>
+            <tr data-id="710"><th scope="row">South Africa</th><td>Sub-Saharan Africa</td><td>1,586</td><td>Finance 1.38×</td><td>Data &amp; analytics 1.35×</td><td>Software eng. 1.12×</td></tr>
+            </tbody>
+          </table>
+          <table class="dl-regdata">
+            <thead><tr><th>Region</th><th>Top specialisation</th><th>2nd</th><th>3rd</th></tr></thead>
+            <tbody>
+            <tr><th scope="row">North Africa</th><td>Data &amp; Analytics 1.83×</td><td>Software Eng. 1.81×</td><td>Data &amp; AI 1.79×</td></tr>
+            <tr><th scope="row">Sub-Saharan Africa</th><td>Data &amp; Analytics 1.54×</td><td>Founder 1.17×</td><td>Software Eng. 1.13×</td></tr>
+            <tr><th scope="row">Western Europe</th><td>Consulting 1.47×</td><td>Project &amp; Deliv. 1.44×</td><td>Data &amp; AI 1.24×</td></tr>
+            <tr><th scope="row">Asia</th><td>HR &amp; Talent 1.45×</td><td>Executive 1.37×</td><td>Students 1.26×</td></tr>
+            <tr><th scope="row">Oceania</th><td>Data &amp; Analytics 1.40×</td><td>Consulting 1.28×</td><td>Software Eng. 1.09×</td></tr>
+            <tr><th scope="row">North America</th><td>Research 1.36×</td><td>Founder 1.35×</td><td>Software Eng. 1.31×</td></tr>
+            <tr><th scope="row">Latin America</th><td>Data &amp; Analytics 1.34×</td><td>General Mgmt 1.26×</td><td>Project &amp; Deliv. 1.09×</td></tr>
+            <tr><th scope="row">Middle East</th><td>Software Eng. 1.33×</td><td>Data &amp; AI 1.28×</td><td>Data &amp; Analytics 1.05×</td></tr>
+            <tr><th scope="row">Eastern Europe</th><td>Software Eng. 1.33×</td><td>Product 1.18×</td><td>General Mgmt 1.00×</td></tr>
+            </tbody>
+          </table>
+        </details>
+      </div>
+
+      <h3 class="dl-substrip">Patterns across the map</h3>
+      <div class="dl-patterns">
+  <div class="dl-pat" data-c="peri"><h4 class="dl-pat-title">Europe's delivery belt</h4><p>Italy, Belgium, Austria and Denmark all run 2-3× on project delivery and consulting - a band of managed-services economies.</p></div>
+  <div class="dl-pat" data-c="spark"><h4 class="dl-pat-title">Emerging markets build and create</h4><p>Nigeria, Indonesia, Turkey and Pakistan lead on founders, design and marketing - the entrepreneurial, creative end.</p></div>
+  <div class="dl-pat" data-c="gold"><h4 class="dl-pat-title">Small territories corner finance</h4><p>Hong Kong (4.9×) and Luxembourg (3.9×) are the two most concentrated places on the whole map - both in finance - with Saudi Arabia and Japan close behind.</p></div>
+</div>
+
+      <h3 class="dl-substrip">What people do - 3 countries where each function beats the world average</h3>
+      <div class="dl-cards">
+  <article class="dl-card">
+    <h4 class="dl-card-title">Software eng.</h4>
+    <p class="dl-card-sub">software engineer, devops engineer, full-stack developer</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="2.9" data-hot><span class="dl-lab">Romania</span><b class="dl-val">2.9×</b></li>
+      <li data-v="2.3"><span class="dl-lab">Israel</span><b class="dl-val">2.3×</b></li>
+      <li data-v="2.2"><span class="dl-lab">Ukraine</span><b class="dl-val">2.2×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">Data &amp; AI</h4>
+    <p class="dl-card-sub">data scientist, machine learning engineer, AI engineer</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="2.5" data-hot><span class="dl-lab">Greece</span><b class="dl-val">2.5×</b></li>
+      <li data-v="2"><span class="dl-lab">Turkey</span><b class="dl-val">2.0×</b></li>
+      <li data-v="1.9"><span class="dl-lab">Egypt</span><b class="dl-val">1.9×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">Data &amp; analytics</h4>
+    <p class="dl-card-sub">data engineer, data analyst, analytics engineer</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="3.3" data-hot><span class="dl-lab">Greece</span><b class="dl-val">3.3×</b></li>
+      <li data-v="2.4"><span class="dl-lab">Morocco</span><b class="dl-val">2.4×</b></li>
+      <li data-v="2.2"><span class="dl-lab">Kenya</span><b class="dl-val">2.2×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">Finance</h4>
+    <p class="dl-card-sub">CFO, quantitative analyst, investment-banking VP</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="4.9" data-hot><span class="dl-lab">Hong Kong</span><b class="dl-val">4.9×</b></li>
+      <li data-v="3.9"><span class="dl-lab">Luxembourg</span><b class="dl-val">3.9×</b></li>
+      <li data-v="2.3"><span class="dl-lab">Saudi Arabia</span><b class="dl-val">2.3×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">Cybersecurity</h4>
+    <p class="dl-card-sub">CISO, cybersecurity engineer, security analyst</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="2.9" data-hot><span class="dl-lab">Saudi Arabia</span><b class="dl-val">2.9×</b></li>
+      <li data-v="2.2"><span class="dl-lab">Argentina</span><b class="dl-val">2.2×</b></li>
+      <li data-v="1.4"><span class="dl-lab">Australia</span><b class="dl-val">1.4×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">Design</h4>
+    <p class="dl-card-sub">product designer, creative director, head of design</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="2.7" data-hot><span class="dl-lab">Nigeria</span><b class="dl-val">2.7×</b></li>
+      <li data-v="2.5"><span class="dl-lab">Indonesia</span><b class="dl-val">2.5×</b></li>
+      <li data-v="1.8"><span class="dl-lab">Portugal</span><b class="dl-val">1.8×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">Marketing</h4>
+    <p class="dl-card-sub">head of marketing, marketing manager, content creator</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="2.9" data-hot><span class="dl-lab">Indonesia</span><b class="dl-val">2.9×</b></li>
+      <li data-v="2"><span class="dl-lab">Pakistan</span><b class="dl-val">2.0×</b></li>
+      <li data-v="1.6"><span class="dl-lab">Nigeria</span><b class="dl-val">1.6×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">Product</h4>
+    <p class="dl-card-sub">product manager, head of product, product owner</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="1.8" data-hot><span class="dl-lab">Nigeria</span><b class="dl-val">1.8×</b></li>
+      <li data-v="1.6"><span class="dl-lab">Czechia</span><b class="dl-val">1.6×</b></li>
+      <li data-v="1.5"><span class="dl-lab">Austria</span><b class="dl-val">1.5×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">Consulting</h4>
+    <p class="dl-card-sub">consultant, senior consultant, advisor</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="2.1" data-hot><span class="dl-lab">France</span><b class="dl-val">2.1×</b></li>
+      <li data-v="2.1"><span class="dl-lab">Belgium</span><b class="dl-val">2.1×</b></li>
+      <li data-v="1.9"><span class="dl-lab">Luxembourg</span><b class="dl-val">1.9×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">Project delivery</h4>
+    <p class="dl-card-sub">project manager, program manager, technical program manager</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="3.1" data-hot><span class="dl-lab">Italy</span><b class="dl-val">3.1×</b></li>
+      <li data-v="3"><span class="dl-lab">Belgium</span><b class="dl-val">3.0×</b></li>
+      <li data-v="2.1"><span class="dl-lab">Austria</span><b class="dl-val">2.1×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">Research</h4>
+    <p class="dl-card-sub">research assistant, applied scientist, researcher</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="2.6" data-hot><span class="dl-lab">South Korea</span><b class="dl-val">2.6×</b></li>
+      <li data-v="1.7"><span class="dl-lab">Japan</span><b class="dl-val">1.7×</b></li>
+      <li data-v="1.6"><span class="dl-lab">Switzerland</span><b class="dl-val">1.6×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">Operations</h4>
+    <p class="dl-card-sub">head of operations, operations manager, COO</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="2.2" data-hot><span class="dl-lab">Norway</span><b class="dl-val">2.2×</b></li>
+      <li data-v="1.9"><span class="dl-lab">Finland</span><b class="dl-val">1.9×</b></li>
+      <li data-v="1.8"><span class="dl-lab">Mexico</span><b class="dl-val">1.8×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">Sales &amp; BD</h4>
+    <p class="dl-card-sub">business development manager, account executive, sales manager</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="1.6" data-hot><span class="dl-lab">Finland</span><b class="dl-val">1.6×</b></li>
+      <li data-v="1.6"><span class="dl-lab">Singapore</span><b class="dl-val">1.6×</b></li>
+      <li data-v="1.6"><span class="dl-lab">Norway</span><b class="dl-val">1.6×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">HR &amp; talent</h4>
+    <p class="dl-card-sub">CHRO, HR business partner, talent-acquisition specialist</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="1.9" data-hot><span class="dl-lab">Japan</span><b class="dl-val">1.9×</b></li>
+      <li data-v="1.7"><span class="dl-lab">Italy</span><b class="dl-val">1.7×</b></li>
+      <li data-v="1.6"><span class="dl-lab">Germany</span><b class="dl-val">1.6×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">Legal</h4>
+    <p class="dl-card-sub">general counsel, legal counsel, compliance officer</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="2.2" data-hot><span class="dl-lab">Saudi Arabia</span><b class="dl-val">2.2×</b></li>
+      <li data-v="1.7"><span class="dl-lab">Japan</span><b class="dl-val">1.7×</b></li>
+      <li data-v="1.3"><span class="dl-lab">Canada</span><b class="dl-val">1.3×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">Other eng.</h4>
+    <p class="dl-card-sub">founding engineer, enterprise architect, solutions architect</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="1.4" data-hot><span class="dl-lab">Singapore</span><b class="dl-val">1.4×</b></li>
+      <li data-v="1.4"><span class="dl-lab">Sweden</span><b class="dl-val">1.4×</b></li>
+      <li data-v="1.3"><span class="dl-lab">Belgium</span><b class="dl-val">1.3×</b></li>
+    </ol>
+  </article>
+</div>
+    </div>
+  </section>
+</div>
+
+<div class="dl-story">
+  <section class="dl-block" id="seniority">
+    <div class="dl-dots"></div>
+    <div class="dl-wrap">
+      <p class="dl-eyebrow">Seniority</p>
+      <h2>Full of bosses, or full of builders</h2>
+      <p class="dl-lead">Two places can hold the same talent and feel completely different - one stacked with founders and executives, another humming with hands-on specialists. This is a separate map, drawn from each person's current <b>level</b>, not their job. Worldwide, about 1 in 8 are founders or C-level, and nearly half are hands-on individual contributors.</p>
+
+      <h3 class="dl-substrip">The seniority ladder, region by region</h3>
+      <div class="dl-viz" data-viz="rows" data-label-min="3">
+        <details class="dl-data">
+          <summary>Data: seniority mix by region (% of each region's professionals)</summary>
+          <table>
+            <thead><tr><th>Region</th><th data-c="lav-3">Interns</th><th data-c="lav-2">Specialists / ICs</th><th data-c="lav-1">Seniors</th><th data-c="peri-3">Managers</th><th data-c="peri-2">Directors &amp; heads</th><th data-c="peri">VPs &amp; partners</th><th data-c="navy-2">C-level</th><th data-c="navy">Founders</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Western Europe</th><td data-v="1">1%</td><td data-v="44">44%</td><td data-v="8">8%</td><td data-v="11">11%</td><td data-v="15">15%</td><td data-v="7">7%</td><td data-v="7">7%</td><td data-v="7">7%</td></tr>
+              <tr><th scope="row">Asia</th><td data-v="1">1%</td><td data-v="43">43%</td><td data-v="9">9%</td><td data-v="12">12%</td><td data-v="12">12%</td><td data-v="12">12%</td><td data-v="5">5%</td><td data-v="5">5%</td></tr>
+              <tr><th scope="row">Latin America</th><td data-v="0">0%</td><td data-v="44">44%</td><td data-v="12">12%</td><td data-v="13">13%</td><td data-v="14">14%</td><td data-v="6">6%</td><td data-v="7">7%</td><td data-v="5">5%</td></tr>
+              <tr><th scope="row">Eastern Europe</th><td data-v="0">0%</td><td data-v="48">48%</td><td data-v="10">10%</td><td data-v="11">11%</td><td data-v="13">13%</td><td data-v="4">4%</td><td data-v="7">7%</td><td data-v="5">5%</td></tr>
+              <tr><th scope="row">Oceania</th><td data-v="1">1%</td><td data-v="52">52%</td><td data-v="11">11%</td><td data-v="8">8%</td><td data-v="13">13%</td><td data-v="5">5%</td><td data-v="6">6%</td><td data-v="5">5%</td></tr>
+              <tr><th scope="row">North America</th><td data-v="2">2%</td><td data-v="52">52%</td><td data-v="10">10%</td><td data-v="7">7%</td><td data-v="7">7%</td><td data-v="9">9%</td><td data-v="5">5%</td><td data-v="8">8%</td></tr>
+              <tr><th scope="row">Middle East</th><td data-v="1">1%</td><td data-v="54">54%</td><td data-v="10">10%</td><td data-v="9">9%</td><td data-v="9">9%</td><td data-v="7">7%</td><td data-v="5">5%</td><td data-v="6">6%</td></tr>
+              <tr><th scope="row">Sub-Saharan Africa</th><td data-v="1">1%</td><td data-v="59">59%</td><td data-v="7">7%</td><td data-v="9">9%</td><td data-v="9">9%</td><td data-v="2">2%</td><td data-v="6">6%</td><td data-v="7">7%</td></tr>
+              <tr><th scope="row">North Africa</th><td data-v="1">1%</td><td data-v="77">77%</td><td data-v="8">8%</td><td data-v="5">5%</td><td data-v="3">3%</td><td data-v="1">1%</td><td data-v="2">2%</td><td data-v="3">3%</td></tr>
+            </tbody>
+          </table>
+        </details>
+      </div>
+
+      <h3 class="dl-substrip">Every rung of the ladder - where each level concentrates</h3>
+      <div class="dl-cards">
+  <article class="dl-card">
+    <h4 class="dl-card-title">Founders</h4>
+    <p class="dl-card-sub">5.8% of the pool</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="2.3" data-hot><span class="dl-lab">Bangladesh</span><b class="dl-val">2.3×</b></li>
+      <li data-v="2.1"><span class="dl-lab">Turkey</span><b class="dl-val">2.1×</b></li>
+      <li data-v="1.9"><span class="dl-lab">Nigeria</span><b class="dl-val">1.9×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">C-level executives</h4>
+    <p class="dl-card-sub">5.8% of the pool</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="2.7" data-hot><span class="dl-lab">South Korea</span><b class="dl-val">2.7×</b></li>
+      <li data-v="2.7"><span class="dl-lab">Norway</span><b class="dl-val">2.7×</b></li>
+      <li data-v="1.9"><span class="dl-lab">Bangladesh</span><b class="dl-val">1.9×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">VPs &amp; partners</h4>
+    <p class="dl-card-sub">8.1% of the pool</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="3.8" data-hot><span class="dl-lab">Hong Kong</span><b class="dl-val">3.8×</b></li>
+      <li data-v="3.6"><span class="dl-lab">Luxembourg</span><b class="dl-val">3.6×</b></li>
+      <li data-v="2.4"><span class="dl-lab">Japan</span><b class="dl-val">2.4×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">Directors &amp; heads</h4>
+    <p class="dl-card-sub">11.5% of the pool</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="2.1" data-hot><span class="dl-lab">Norway</span><b class="dl-val">2.1×</b></li>
+      <li data-v="2"><span class="dl-lab">Austria</span><b class="dl-val">2.0×</b></li>
+      <li data-v="1.8"><span class="dl-lab">Hong Kong</span><b class="dl-val">1.8×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">Managers</h4>
+    <p class="dl-card-sub">10.3% of the pool</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="1.9" data-hot><span class="dl-lab">Belgium</span><b class="dl-val">1.9×</b></li>
+      <li data-v="1.7"><span class="dl-lab">Chile</span><b class="dl-val">1.7×</b></li>
+      <li data-v="1.6"><span class="dl-lab">Italy</span><b class="dl-val">1.6×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">Senior specialists</h4>
+    <p class="dl-card-sub">9.6% of the pool</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="2.5" data-hot><span class="dl-lab">Sri Lanka</span><b class="dl-val">2.5×</b></li>
+      <li data-v="1.7"><span class="dl-lab">New Zealand</span><b class="dl-val">1.7×</b></li>
+      <li data-v="1.7"><span class="dl-lab">Ukraine</span><b class="dl-val">1.7×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">Specialists / ICs</h4>
+    <p class="dl-card-sub">47.6% of the pool</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="1.8" data-hot><span class="dl-lab">Morocco</span><b class="dl-val">1.8×</b></li>
+      <li data-v="1.7"><span class="dl-lab">Jordan</span><b class="dl-val">1.7×</b></li>
+      <li data-v="1.6"><span class="dl-lab">Romania</span><b class="dl-val">1.6×</b></li>
+    </ol>
+  </article>
+  <article class="dl-card">
+    <h4 class="dl-card-title">Interns &amp; trainees</h4>
+    <p class="dl-card-sub">1.2% of the pool</p>
+    <ol class="dl-bars dl-bars-lq" data-min="1" data-max="5" data-minw="5" data-base="1" data-base-label="world average">
+      <li data-v="2.3" data-hot><span class="dl-lab">United States</span><b class="dl-val">2.3×</b></li>
+      <li data-v="2.1"><span class="dl-lab">Pakistan</span><b class="dl-val">2.1×</b></li>
+      <li data-v="1.9"><span class="dl-lab">Germany</span><b class="dl-val">1.9×</b></li>
+    </ol>
+  </article>
+</div>
+
+      <h3 class="dl-substrip">Patterns in the ladder</h3>
+      <div class="dl-patterns">
+  <div class="dl-pat" data-c="navy"><h4 class="dl-pat-title">North Africa is all builders</h4><p>77% of its professionals are hands-on specialists, with the thinnest leadership layer on the map - almost no managers or executives.</p></div>
+  <div class="dl-pat" data-c="spark"><h4 class="dl-pat-title">Founders cluster in emerging markets - but not only</h4><p>Bangladesh, Turkey and Nigeria over-index ~2× on founders. Yet North America still holds the largest share of founders of any region (8% of its talent) - a bigger base, just less concentrated.</p></div>
+  <div class="dl-pat" data-c="gold"><h4 class="dl-pat-title">Finance capitals run on VPs</h4><p>Hong Kong (3.8×) and Luxembourg (3.6×) are stacked with vice-presidents and partners - the seniority signature of a financial centre.</p></div>
+  <div class="dl-pat" data-c="peri"><h4 class="dl-pat-title">Asia tilts senior</h4><p>South Korea leads on C-level, while Hong Kong and Japan carry the deepest VP and partner tiers - established leadership, not early-career talent.</p></div>
+</div>
+    </div>
+  </section>
+</div>
+
+<div class="dl-story">
+  <section class="dl-scrolly" id="young-talent">
+    <div class="dl-step" data-n="04">
+      <h2>Where the young are</h2>
+      <p>Now, young talent - measured as a <span class="dl-hl">share of each region</span>, never a raw count. It clusters heavily in a few places.</p>
+      <p><span class="dl-hl">North Africa stands out</span>: 39% of its professionals are early-career, over 4× the world average. Asia and Sub-Saharan Africa also skew young; the West and Latin America are the most senior.</p>
+      <figure class="dl-scene">
+        <figcaption><span class="dl-cap">Young talent · concentration</span><strong class="dl-scene-title">Where young talent concentrates</strong><span class="dl-sub">Share of each region that is early-career (1-3 yrs)</span></figcaption>
+        <div class="dl-body">
+          <ul class="dl-bars" data-max="42" data-base="8.7">
+            <li data-v="39.1" data-hot><span class="dl-lab">North Africa</span><b class="dl-val">39%</b></li>
+            <li data-v="14.3"><span class="dl-lab">Asia</span><b class="dl-val">14%</b></li>
+            <li data-v="12"><span class="dl-lab">Sub-Saharan Africa</span><b class="dl-val">12%</b></li>
+            <li data-v="10.9"><span class="dl-lab">Middle East</span><b class="dl-val">11%</b></li>
+            <li data-v="7"><span class="dl-lab">North America</span><b class="dl-val">7%</b></li>
+            <li data-v="6"><span class="dl-lab">Eastern Europe</span><b class="dl-val">6%</b></li>
+            <li data-v="5.2"><span class="dl-lab">Western Europe</span><b class="dl-val">5%</b></li>
+            <li data-v="4.8"><span class="dl-lab">Oceania</span><b class="dl-val">5%</b></li>
+            <li data-v="2.9"><span class="dl-lab">Latin America</span><b class="dl-val">3%</b></li>
+          </ul>
+        </div>
+        <p class="dl-foot">Dashed line = world average, 8.7%.</p>
+      </figure>
+    </div>
+
+    <div class="dl-step" data-n="05">
+      <h2>They all do the same work</h2>
+      <p>Wherever the young are, they do the same handful of jobs. <span class="dl-hl">Software engineering comes first everywhere</span> - a quarter to a half of each region's early-career talent - followed by data and AI.</p>
+      <p>The mix barely changes from one region to the next.</p>
+      <figure class="dl-scene">
+        <figcaption><span class="dl-cap">Young talent · what they do</span><strong class="dl-scene-title">The young do the same few jobs</strong><span class="dl-sub">Each region's early-career talent, by job family - spot how alike they are</span></figcaption>
+        <div class="dl-body">
+          <div class="dl-viz" data-viz="rows">
+            <details class="dl-data">
+              <summary>Data: early-career talent by job family (% of each region's early-career talent)</summary>
+              <table>
+                <thead><tr><th>Region</th><th data-c="navy" data-label>Software engineering</th><th data-c="gold">Data &amp; analytics</th><th data-c="peri">Data &amp; AI</th><th data-c="soft-2">Everything else</th></tr></thead>
+                <tbody>
+                <tr><th scope="row">North Africa</th><td data-v="47">47%</td><td data-v="19">19%</td><td data-v="19">19%</td><td data-v="15">15%</td></tr>
+                <tr><th scope="row">Asia</th><td data-v="51">51%</td><td data-v="12">12%</td><td data-v="8">8%</td><td data-v="29">29%</td></tr>
+                <tr><th scope="row">Sub-Saharan Africa</th><td data-v="36">36%</td><td data-v="21">21%</td><td data-v="10">10%</td><td data-v="33">33%</td></tr>
+                <tr><th scope="row">Middle East</th><td data-v="40">40%</td><td data-v="17">17%</td><td data-v="17">17%</td><td data-v="26">26%</td></tr>
+                <tr><th scope="row">North America</th><td data-v="47">47%</td><td data-v="7">7%</td><td data-v="9">9%</td><td data-v="37">37%</td></tr>
+                <tr><th scope="row">Eastern Europe</th><td data-v="54">54%</td><td data-v="10">10%</td><td data-v="12">12%</td><td data-v="24">24%</td></tr>
+                <tr><th scope="row">Western Europe</th><td data-v="25">25%</td><td data-v="14">14%</td><td data-v="23">23%</td><td data-v="38">38%</td></tr>
+                <tr><th scope="row">Oceania</th><td data-v="35">35%</td><td data-v="18">18%</td><td data-v="17">17%</td><td data-v="30">30%</td></tr>
+                <tr><th scope="row">Latin America</th><td data-v="43">43%</td><td data-v="17">17%</td><td data-v="12">12%</td><td data-v="28">28%</td></tr>
+                </tbody>
+              </table>
+            </details>
+          </div>
+        </div>
+      </figure>
+    </div>
+
+    <div class="dl-step" data-n="06">
+      <h2>One shared language</h2>
+      <p>Zoom from families to exact titles and it's starker still: <span class="dl-hl">software engineer, data scientist, data &amp; AI engineer</span> top the young list in every region.</p>
+      <p>Careers begin in one language, and only branch into local specialisms as people climb.</p>
+      <figure class="dl-scene">
+        <figcaption><span class="dl-cap">The one constant</span><strong class="dl-scene-title">Careers start in one language</strong><span class="dl-sub">Most common entry-level titles - the same in every region</span></figcaption>
+        <div class="dl-body">
+          <ol class="dl-ranklist">
+            <li><span class="dl-t">Software engineer</span><span class="dl-g">every region</span></li>
+            <li><span class="dl-t">Data scientist</span><span class="dl-g">every region</span></li>
+            <li><span class="dl-t">Data / AI engineer</span><span class="dl-g">every region</span></li>
+            <li><span class="dl-t">Software developer</span><span class="dl-g">every region</span></li>
+          </ol>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="dl-outro">
+    <div class="dl-ring"></div>
+    <div class="dl-wrap">
+      <p class="dl-eyebrow">In closing</p>
+      <h2>There isn't one map of talent. There are many.</h2>
+      <div class="dl-concl">
+        <p>Look long enough and the flat idea of "digital talent" dissolves into something richer. Western Europe advises and consults; Asia leads, manages and hires; and across Africa, Latin America and the Gulf, a younger world leans into data and into building things from scratch. No country is the centre - each is simply the most itself.</p>
+        <p>Zoom in and those leanings sharpen into signatures. Finance pools in Hong Kong and Luxembourg. Engineering runs deep in Romania, Israel and Ukraine. And founders gather where you would least expect them - Lagos, Jakarta, Istanbul.</p>
+        <p>The youngest talent writes the clearest line of all. It gathers most densely in North Africa and Asia, and wherever it lands it speaks the same first language - software, then data - before picking up the accent of its region.</p>
+      </div>
+      <p class="dl-closer">None of it comes from counting heads. It comes from asking a better question of every place on the map: not how many, but what are you for.</p>
+      <p class="dl-brandlock">Driving employability · Digital Leaders 2026</p>
+    </div>
+  </section>
+</div>
+
+<script type="module" src="../modules/dl-story.js"></script>
+</body>
+</html>
