@@ -6,13 +6,15 @@ import sys, re
 from html.parser import HTMLParser
 
 LIMIT = 50000
-TAGS = set("article b details div em figcaption figure h1 h2 h3 h4 header i li ol p section span strong summary table tbody td th thead tr ul a br".split())
+TAGS = set("article b details div em figcaption figure h2 h3 h4 i li ol p section span strong summary table tbody td th thead tr ul a br".split())
 VOID = {"br"}
-CLASSES = set("""dl-story dl-wrap dl-hero dl-eyebrow dl-title dl-dek dl-kpis dl-val dl-lab dl-poolmeta dl-poolcap dl-scrollcue dl-bounce
+# header et h1 sont volontairement absents : le titre (h1) et le bandeau d'ouverture
+# appartiennent au template Webflow, jamais a un embed (voir STORY-GUIDE.md §3).
+CLASSES = set("""dl-story dl-wrap dl-eyebrow dl-kpis dl-val dl-lab dl-poolmeta dl-poolcap dl-scrollcue dl-bounce
 dl-scrolly dl-step dl-scene dl-scene-title dl-cap dl-sub dl-body dl-bignum dl-stackbar dl-bars dl-bars-lg dl-bars-lq
 dl-viz dl-ranklist dl-callout dl-block dl-lead dl-substrip dl-map dl-mapdata dl-regdata dl-data dl-cards dl-card
 dl-card-title dl-card-sub dl-patterns dl-pat dl-pat-title dl-outro dl-closer dl-concl dl-foot dl-brandlock dl-dots
-dl-ring dl-ring-a dl-ring-b dl-g dl-hl dl-t dl-thin""".split())
+dl-ring dl-g dl-hl dl-t""".split())
 DATA_ATTRS = {"data-n","data-v","data-c","data-max","data-min","data-minw","data-viz","data-label","data-id","data-base","data-base-label","data-label-min","data-topo","data-hot"}
 COLORS = set("navy navy-2 peri peri-2 peri-3 lav-1 lav-2 lav-3 gold salmon spark soft soft-2".split())
 FORBID_TAGS = {"script","style","link","iframe","object","embed","form","input","button","svg","img","video"}

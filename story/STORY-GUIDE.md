@@ -19,49 +19,48 @@ Ce fichier s'adresse à Claude. L'utilisateur te le donne avec le contenu d'un a
 
 ## 3. Structure d'un article
 
-Ordre recommandé (tout est optionnel sauf le titre et le résumé) :
+Ordre recommandé :
 
-1. `header.dl-hero` : titre, chapô, chiffres clés.
-2. `section.dl-scrolly` : le récit en étapes, avec un graphique fixe à côté du texte.
-3. `section.dl-block` : blocs plein écran (carte, tableaux riches, cartes de classement).
-4. `section.dl-outro` : conclusion.
+1. **Titre et résumé : jamais dans l'embed.** Le template Webflow affiche déjà le titre de l'article en `h1` et son résumé, à partir des champs du CMS. Tu ne les écris pas en HTML. Donne-les quand même à l'utilisateur en texte simple après le code, pour qu'il les colle dans ces champs (voir « Résumé » ci-dessous).
+2. **Amorce chiffrée (facultative)** : une courte section avec `dl-kpis` et `dl-scrollcue`, pour donner les chiffres clés avant d'entrer dans le récit (gabarit 4.1).
+3. `section.dl-scrolly` : le récit en étapes, avec un graphique fixe à côté du texte.
+4. `section.dl-block` : blocs plein écran (carte, tableaux riches, cartes de classement).
+5. `section.dl-outro` : conclusion.
 
 ### Titres (SEO)
 
-- **Un seul `h1` par page**, dans le hero. Si le template Webflow affiche déjà le titre de l'article en `h1`, remplace-le dans le hero par `<p class="dl-title">…</p>` (même contenu, pas de balise h1). Demande à l'utilisateur lequel des deux cas s'applique, sinon utilise `<p class="dl-title">`.
-- `h2` : un par étape de scrollytelling et un par `section.dl-block`.
+- **Jamais de `h1`, ni de `header`, dans un embed.** Le seul `h1` de la page est celui du template Webflow. N'écris jamais `<h1>`, `<p class="dl-title">`, `<p class="dl-eyebrow">` en tête d'article : ce sont des champs du template, pas du contenu d'embed.
+- `h2` : un par étape de scrollytelling et un par `section.dl-block`. C'est le premier niveau de titre que tu écris, juste après le h1 (externe) du template.
 - `h3.dl-substrip` : sous-parties d'un bloc.
 - `h4` : titres de cartes (`dl-card-title`) et de motifs (`dl-pat-title`).
 - Ne saute jamais de niveau (pas de h2 puis h4).
 - Les titres sont des phrases informatives, pas des slogans vides ("Le Maroc concentre 39 % de jeunes talents" plutôt que "Zoom sur le jeune").
 
-### Résumé obligatoire
+### Résumé
 
-Le premier paragraphe après le titre (`p.dl-dek`) résume la conclusion de l'article en 1 à 2 phrases avec au moins un chiffre. C'est ce que lisent les moteurs et les IA.
+Le résumé en 1 à 2 phrases avec au moins un chiffre va dans le champ de résumé du template Webflow, pas dans l'embed. Donne-le à l'utilisateur en texte simple à la fin de ta réponse, pour qu'il le colle dans ce champ. C'est ce que lisent les moteurs et les IA.
 
 ## 4. Catalogue des blocs
 
 Copie ces gabarits tels quels, change seulement le contenu.
 
-### 4.1 Hero
+### 4.1 Amorce chiffrée (facultative)
+
+Le titre, l'éventuel surtitre et le résumé sont dans le template Webflow (voir §3), jamais ici. Cette section ne contient que les chiffres clés et l'invite à défiler.
 
 ```html
-<header class="dl-hero">
-  <div class="dl-dots"></div><div class="dl-ring dl-ring-a"></div><div class="dl-ring dl-ring-b"></div>
+<section>
   <div class="dl-wrap">
-    <p class="dl-eyebrow">Emerging&nbsp;·&nbsp;Rubrique ou rapport</p>
-    <h1 class="dl-title"><span class="dl-thin">Début du titre en fin</span> fin du titre <em>mot accentué</em></h1>
-    <p class="dl-dek">Résumé en 1 à 2 phrases avec un chiffre.</p>
     <ul class="dl-kpis">
       <li><b>194,482</b><span>Profils</span></li>
       <li><b>160</b><span>Pays</span></li>
     </ul>
     <p class="dl-scrollcue"><span class="dl-bounce" aria-hidden="true">↓</span> Scroll to begin</p>
   </div>
-</header>
+</section>
 ```
 
-`dl-kpis` : 2 à 4 `li`, un chiffre en `<b>` et un libellé en `<span>`. `<span class="dl-thin">` et `<em>` sont facultatifs.
+`dl-kpis` : 2 à 4 `li`, un chiffre en `<b>` et un libellé en `<span>`.
 
 ### 4.2 Scrollytelling : étape + scène
 
@@ -261,9 +260,9 @@ La carte est **spécifique** : les régions et les identifiants pays sont fixes.
 
 ## 6. Checklist SEO avant de livrer
 
-- [ ] Un seul `h1` sur la page (ou `p.dl-title` si le template gère le h1).
-- [ ] Hiérarchie h1 > h2 > h3 > h4 sans saut.
-- [ ] `p.dl-dek` avec un résumé chiffré.
+- [ ] Aucun `h1` ni `header` dans l'embed : c'est le template Webflow qui les fournit.
+- [ ] Hiérarchie h1 (externe) > h2 > h3 > h4 sans saut.
+- [ ] Résumé chiffré donné en texte simple, pour le champ de résumé du template, pas dans l'embed.
 - [ ] Chaque scène a un `figcaption` avec titre et une ligne de contexte.
 - [ ] Chaque visuel a ses données en HTML (liste ou `table`), pas seulement en dessin.
 - [ ] Le texte de chaque étape dit ce que montre le graphique.
@@ -327,7 +326,7 @@ Toujours **épingler la version** (`@1.0.0`) : une modification du kit passe par
 2. **Footer** (avant `</body>`) : la balise `<script type="module" src=".../modules/dl-story.js"></script>` de l'annexe B. Elle est sur toutes les pages d'article, mais ne fait rien si l'article n'a pas de `.dl-story`.
 3. **Mise en page** : le Rich Text de l'article doit être dans un conteneur **pleine largeur**, **sans `overflow: hidden/auto/scroll` sur aucun ancêtre** (cela casse le `position: sticky` des scènes). Pas de `max-width` sur le Rich Text lui-même : le kit gère ses propres largeurs (`.dl-wrap`).
 4. **Navbar fixe** : si le site a une navbar fixe, définir `--dl-top` (hauteur de la navbar, par exemple `:root{--dl-top:72px}`) pour que les scènes se calent dessous. Valeur par défaut : `0px`.
-5. **Titre h1** : si le template sort déjà le champ Name en h1, l'article utilise `p.dl-title` (voir §3 du guide).
+5. **Titre h1 et résumé** : toujours fournis par le template, à partir des champs du CMS (Name, résumé). Les embeds n'en contiennent jamais (voir §3 du guide).
 6. **Rich Text** : le client colle chaque embed dans un bloc **Embed** du Rich Text (Webflow : `+` > Embed dans l'éditeur du CMS), dans l'ordre. Webflow limite chaque embed à 50 000 caractères.
 7. **JSON-LD facultatif** : un champ du CMS ou un Embed du template avec `Article` (headline, datePublished, author, image) alimenté par les champs du CMS via les liaisons de données. À faire côté template, pas dans les embeds.
 
@@ -349,7 +348,9 @@ Contrôle : début/fin de l'embed, 50 000 caractères, balises et classes autori
 
 ## F. Liste des classes autorisées (générée)
 
-`dl-story dl-wrap dl-hero dl-eyebrow dl-title dl-dek dl-kpis dl-val dl-lab dl-poolmeta dl-poolcap dl-scrollcue dl-bounce dl-scrolly dl-step dl-scene dl-scene-title dl-cap dl-sub dl-body dl-bignum dl-stackbar dl-bars dl-bars-lg dl-bars-lq dl-viz dl-ranklist dl-callout dl-block dl-lead dl-substrip dl-map dl-mapdata dl-regdata dl-data dl-cards dl-card dl-card-title dl-card-sub dl-patterns dl-pat dl-pat-title dl-outro dl-closer dl-concl dl-foot dl-brandlock dl-dots dl-ring dl-ring-a dl-ring-b dl-g dl-hl dl-t dl-thin`
+`dl-story dl-wrap dl-eyebrow dl-kpis dl-val dl-lab dl-poolmeta dl-poolcap dl-scrollcue dl-bounce dl-scrolly dl-step dl-scene dl-scene-title dl-cap dl-sub dl-body dl-bignum dl-stackbar dl-bars dl-bars-lg dl-bars-lq dl-viz dl-ranklist dl-callout dl-block dl-lead dl-substrip dl-map dl-mapdata dl-regdata dl-data dl-cards dl-card dl-card-title dl-card-sub dl-patterns dl-pat dl-pat-title dl-outro dl-closer dl-concl dl-foot dl-brandlock dl-dots dl-ring dl-g dl-hl dl-t`
+
+Classes retirées du catalogue (le hero est désormais géré par le template Webflow, jamais par un embed) : `dl-hero dl-title dl-dek dl-thin dl-ring-a dl-ring-b`. Ne les utilise plus, même si elles existent encore dans `dl-story.css`.
 
 Classes **créées par le JS** (ne jamais les écrire à la main) : `dl-js dl-live dl-active dl-stage dl-steps dl-graphic dl-track dl-fill dl-baseline dl-stack dl-seg dl-ybars dl-ybar dl-ybarrow dl-ylab dl-legend dl-rl dl-tablewrap dl-t3 dl-t3bar dl-controls dl-searchbox dl-si dl-mapsearch dl-maphint dl-mapgrid dl-mapsvg dl-panel dl-ph dl-pc dl-pg dl-pr dl-reglegend dl-maperr dl-geo dl-built dl-dim dl-hi dl-off dl-tf`
 
