@@ -30,7 +30,8 @@ Ordre recommandé :
 ### Titres (SEO)
 
 - **Jamais de `h1`, ni de `header`, dans un embed.** Le seul `h1` de la page est celui du template Webflow. N'écris jamais `<h1>`, `<p class="dl-title">`, `<p class="dl-eyebrow">` en tête d'article : ce sont des champs du template, pas du contenu d'embed.
-- `h2` : un par étape de scrollytelling et un par `section.dl-block`. C'est le premier niveau de titre que tu écris, juste après le h1 (externe) du template.
+- `h2` : **réservé aux titres de chapitre**, c'est-à-dire exactement un par `div.dl-step` et un par `section.dl-block` (plus celui de `section.dl-outro`). C'est le premier niveau de titre que tu écris, juste après le h1 (externe) du template.
+- **Un sous-titre n'est jamais un `h2`**, même s'il paraît important : sous-partie d'un bloc, titre de graphique, surtitre, introduction, accroche. Un bloc ou une étape n'a qu'un seul `h2`. Si tu as besoin d'un deuxième titre dans le même chapitre, c'est un `h3.dl-substrip`.
 - `h3.dl-substrip` : sous-parties d'un bloc.
 - `h4` : titres de cartes (`dl-card-title`) et de motifs (`dl-pat-title`).
 - Ne saute jamais de niveau (pas de h2 puis h4).
@@ -262,6 +263,7 @@ La carte est **spécifique** : les régions et les identifiants pays sont fixes.
 
 - [ ] Aucun `h1` ni `header` dans l'embed : c'est le template Webflow qui les fournit.
 - [ ] Hiérarchie h1 (externe) > h2 > h3 > h4 sans saut.
+- [ ] Un seul `h2` par étape, par bloc et par conclusion, et aucun sous-titre en `h2`.
 - [ ] Résumé chiffré donné en texte simple, pour le champ de résumé du template, pas dans l'embed.
 - [ ] Chaque scène a un `figcaption` avec titre et une ligne de contexte.
 - [ ] Chaque visuel a ses données en HTML (liste ou `table`), pas seulement en dessin.
