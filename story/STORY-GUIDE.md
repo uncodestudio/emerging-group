@@ -1,15 +1,50 @@
 # STORY-GUIDE : écrire un article scrollytelling Emerging
 
-Ce fichier s'adresse à Claude. L'utilisateur te le donne avec le contenu d'un article (texte, chiffres, tableaux). Ta mission : produire le **HTML** de l'article, prêt à coller dans des blocs Embed du Rich Text Webflow. Le CSS et le JS existent déjà, tu ne les écris jamais.
+Ce fichier s'adresse à Claude. L'utilisateur te le donne avec le contenu d'un article (texte, chiffres, tableaux). Ta mission : produire le **HTML** de l'article, prêt à coller dans des blocs Embed du Rich Text Webflow. Le CSS et le JS existent déjà : tu ne les écris jamais dans les embeds. Tu les relies seulement dans un fichier de test local, pour que l'utilisateur voie le rendu sur son ordinateur avant de coller (§2).
 
 ## 1. Principe (à respecter avant tout)
 
 1. **Le HTML est complet et lisible sans JavaScript.** Tout le texte et toutes les données sont dans le HTML (listes, tableaux). Le JS ne fait que décorer (barres, carte, scènes qui se fixent à l'écran). Un robot qui ne lit que le HTML doit comprendre tout l'article et retrouver tous les chiffres.
 2. **Tu n'inventes jamais un chiffre, un pays, une source ou une citation.** Si une donnée manque, tu le dis à l'utilisateur et tu poses la question. Tu ne complètes pas.
-3. **Tu n'utilises que les classes, balises et attributs listés ici.** Pas de `style=""`, pas de classe inventée, pas de `<script>`, `<style>`, `<link>`, `<iframe>`, `<img>`, `<svg>`, `<button>`, `<form>`.
+3. **Tu n'utilises que les classes, balises et attributs listés ici.** Pas de `style=""`, pas de classe inventée, pas de `<script>`, `<style>`, `<link>`, `<iframe>`, `<img>`, `<svg>`, `<button>`, `<form>` dans les embeds. Seule exception : l'en-tête et le pied du fichier de test local (§2.1), jamais copiés dans Webflow.
 4. **Les textes visibles suivent la langue de l'article** (l'interface de la carte, elle, reste en anglais, voir annexe).
 
 ## 2. Format de sortie
+
+Tu livres deux choses, dans cet ordre :
+
+1. **Un fichier de test local** `apercu.html` (§2.1), pour que l'utilisateur vérifie le rendu sur son ordinateur.
+2. **À la fin, uniquement le HTML des embeds**, à copier dans Webflow (§2.2). C'est le seul livrable à intégrer : l'utilisateur ne colle jamais le fichier de test dans Webflow, ni son en-tête, ni ses balises `<script>`.
+
+### 2.1 Fichier de test local
+
+Le fichier de test reproduit le rendu de Webflow : il charge le vrai JS du kit, qui charge lui-même le CSS et les données de la carte. Tu ne réécris jamais ce JS ni ce CSS, même partiellement : une copie refaite à la main ne rendrait pas comme la page en ligne.
+
+Gabarit, à copier tel quel. Tu remplaces seulement le commentaire par tous les embeds, mis bout à bout dans l'ordre, et `lang` par la langue de l'article :
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aperçu local de l'article</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+<script>document.documentElement.classList.add('dl-js')</script>
+<style>body{margin:0}</style>
+</head>
+<body>
+<!-- Embed 1, Embed 2... ici, chacun avec son <div class="dl-story"> -->
+<script type="module" src="https://cdn.jsdelivr.net/gh/uncodestudio/emerging-group@main/modules/dl-story.js"></script>
+</body>
+</html>
+```
+
+Dis à l'utilisateur : enregistrer le fichier sous `apercu.html`, l'ouvrir par double-clic dans Chrome, Edge ou Firefox (une connexion internet est nécessaire), vérifier en largeur ordinateur puis en réduisant la fenêtre sous 860 px (rendu mobile). Le titre et le résumé n'y apparaissent pas : c'est normal, ils viennent du template Webflow.
+
+### 2.2 HTML à intégrer dans Webflow
 
 - Tu livres **un ou plusieurs blocs de code HTML**, nommés `Embed 1`, `Embed 2`, etc.
 - Chaque bloc **commence par `<div class="dl-story">` et finit par `</div>`**.
@@ -274,6 +309,8 @@ La carte est **spécifique** : les régions et les identifiants pays sont fixes.
 
 ## 7. Checklist finale (à cocher mentalement avant d'envoyer)
 
+- [ ] Le fichier de test `apercu.html` est livré d'abord, avec le gabarit du §2.1 sans modification de l'en-tête ni du pied.
+- [ ] La réponse se termine par les embeds seuls, sans en-tête, `<script>` ni `<style>`.
 - [ ] Chaque embed commence par `<div class="dl-story">` et finit par `</div>`.
 - [ ] Chaque embed fait moins de 50 000 caractères, découpé entre deux sections.
 - [ ] Toutes les balises sont fermées et bien imbriquées.
