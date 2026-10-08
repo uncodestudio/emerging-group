@@ -37,7 +37,7 @@ Gabarit, à copier tel quel. Tu remplaces seulement le commentaire par tous les 
 </head>
 <body>
 <!-- Embed 1, Embed 2... ici, chacun avec son <div class="dl-story"> -->
-<script type="module" src="https://cdn.jsdelivr.net/gh/uncodestudio/emerging-group@main/modules/dl-story.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/uncodestudio/emerging-group@fe54bba8bd123247aafa783f7b2997e324d50335/modules/dl-story.js"></script>
 </body>
 </html>
 ```
@@ -340,15 +340,15 @@ Cette annexe n'est pas pour Claude lors de la rédaction d'un article.
 
 ## B. Hébergement (CDN versionné)
 
-Dépôt GitHub `<ORG>/<REPO>`, tag `v1.0.0`, puis :
+Dépôt GitHub `uncodestudio/emerging-group`, épinglé sur un hash de commit (pas de tag) :
 
 ```html
-<script type="module" src="https://cdn.jsdelivr.net/gh/<ORG>/<REPO>@1.0.0/modules/dl-story.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/uncodestudio/emerging-group@fe54bba8bd123247aafa783f7b2997e324d50335/modules/dl-story.js"></script>
 ```
 
 Une seule balise. Le module charge lui-même `css/dl-story.css`, et seulement si la page contient un bloc `.dl-story` : sur une page sans article scrollytelling, rien n'est téléchargé.
 
-Toujours **épingler la version** (`@1.0.0`) : une modification du kit passe par un nouveau tag, jamais par une édition silencieuse. Le module charge `countries-110m.json` depuis `data/` (un dossier au-dessus de `modules/`) ; on peut le surcharger avec `data-topo="URL"` sur `.dl-map`. D3 7.8.5 et TopoJSON 3.0.2 sont chargés depuis cdnjs, uniquement si l'article contient une carte.
+Toujours **épingler la version** par le hash complet du commit, jamais `@main` : une modification du kit passe par un push, puis par le remplacement du hash à deux endroits, le footer du template Webflow et le gabarit du §2.1 de ce guide (pour que l'aperçu local reste identique au site). Le module charge `countries-110m.json` depuis `data/` (un dossier au-dessus de `modules/`) ; on peut le surcharger avec `data-topo="URL"` sur `.dl-map`. D3 7.8.5 et TopoJSON 3.0.2 sont chargés depuis cdnjs, uniquement si l'article contient une carte.
 
 ## C. Template Webflow "Article" (une fois pour toutes)
 
