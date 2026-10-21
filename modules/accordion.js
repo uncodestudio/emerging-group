@@ -1,0 +1,75 @@
+// Accordéon (FAQ, programme, détails).
+// Accroches sur chaque élément :
+//   [data-accordion]            l'élément ; data-accordion-group="faq" pour n'en ouvrir qu'un à la fois dans le groupe
+//   [data-accordion-trigger]    la zone cliquable (question)
+//   [data-accordion-content]    le contenu qui s'ouvre (réponse)
+//   [data-accordion-icon]       facultatif, l'icône
+//   [data-accordion-open]       facultatif, sur l'élément : ouvert au chargement
+// Attributs fixes posés dans Webflow : role="button", tabindex="0" et aria-controls sur la question, un id sur la réponse.
+// Le module ne gère que l'état (aria-expanded, is-open, hauteur). Repli : une réponse sans id (élément dupliqué) en reçoit un.
+// La classe is-open est posée sur l'élément et l'icône ouverts : l'animation de l'icône se règle dans Webflow.
+// Repris du starter (uncode-webflow-starter/modules/accordion.js), sans utils.js.
+const prefersReducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches
+
+const DURATION = 0.4
+
+export function init() {
+  if (typeof gsap === 'undefined') return
+
+  const duration = prefersReducedMotion() ? 0 : DURATION
+
+  const items = [...document.querySelectorAll('[data-accordion]')]
+    .map((el) => ({
+      el,
+      group: el.dataset.accordionGroup || null,
+      trigger: el.querySelector('[data-accordion-trigger]'),
+      content: el.querySelector('[data-accordion-content]'),
+      icon: el.querySelector('[data-accordion-icon]'),
+    }))
+    .filter((item) => item.trigger && item.content)
+
+  const setOpen = (item, open) => {
+    item.el.classList.toggle('is-open', open)
+    item.icon?.classList.toggle('is-open', open)
+    item.trigger.setAttribute('aria-expanded', String(open))
+    // Réponse fermée : masquée aux lecteurs d'écran et au clavier une fois l'animation finie
+    if (open) gsap.set(item.content, { visibility: 'visible' })
+    gsap.to(item.content, {
+      height: open ? 'auto' : 0,
+      duration,
+      ease: 'power2.inOut',
+      overwrite: true, // une réouverture pendant la fermeture annule la fermeture (et son masquage)
+      onComplete: open ? undefined : () => gsap.set(item.content, { visibility: 'hidden' }),
+    })
+  }
+
+  items.forEach((item, index) => {
+    if (!item.content.id) {
+      item.content.id = `accordion-content-${index + 1}`
+      item.trigger.setAttribute('aria-controls', item.content.id)
+    }
+    const startOpen = item.el.hasAttribute('data-accordion-open')
+    item.el.classList.toggle('is-open', startOpen)
+    item.icon?.classList.toggle('is-open', startOpen)
+    item.trigger.setAttribute('aria-expanded', String(startOpen))
+    gsap.set(item.content, { height: startOpen ? 'auto' : 0, overflow: 'hidden', visibility: startOpen ? 'visible' : 'hidden' })
+
+    const toggle = () => {
+      const open = !item.el.classList.contains('is-open')
+      if (open && item.group) {
+        items
+          .filter((other) => other !== item && other.group === item.group && other.el.classList.contains('is-open'))
+          .forEach((other) => setOpen(other, false))
+      }
+      setOpen(item, open)
+    }
+
+    item.trigger.addEventListener('click', toggle)
+    item.trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault()
+        toggle()
+      }
+    })
+  })
+}
