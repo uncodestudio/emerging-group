@@ -1,8 +1,10 @@
-// Slider « They talk about us » (home) : collection list montée en Splide.
+// Sliders Splide « They talk about us » (home, collection list) et témoignages (pages solution).
 // Splide 4 est importé à la main dans le code de la page qui en a besoin (R-45), pas ici.
-// Structure Webflow : .home-media_component.splide > .home-media_track.splide__track
-//   > .home-media_list.splide__list > .home-media_item.splide__slide
-// Flèches : [data-carousel="prev"] et [data-carousel="next"] dans .home-media_component.
+// Structure Webflow : racine .splide (.home-media_component ou .testimonials_component)
+//   > piste .splide__track > liste .splide__list > slides .splide__slide
+// Flèches : [data-carousel="prev"] et [data-carousel="next"] dans la racine.
+
+export const SELECTOR = '.home-media_component.splide, .testimonials_component.splide'
 
 function bindArrow(button, splide, direction) {
   if (!button) return
@@ -23,7 +25,7 @@ export function init() {
     return
   }
 
-  document.querySelectorAll('.home-media_component.splide').forEach((component) => {
+  document.querySelectorAll(SELECTOR).forEach((component) => {
     const prev = component.querySelector('[data-carousel="prev"]')
     const next = component.querySelector('[data-carousel="next"]')
 
