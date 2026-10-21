@@ -38,7 +38,7 @@ export function init() {
       trimSpace: true,
       breakpoints: {
         991: { perPage: 2 },
-        767: { perPage: 1, padding: { right: '15%' } },
+        767: { perPage: 1.5 },
       },
     })
 
