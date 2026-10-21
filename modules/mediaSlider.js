@@ -38,7 +38,8 @@ export function init() {
       trimSpace: true,
       breakpoints: {
         991: { perPage: 2 },
-        767: { perPage: 1.5 },
+        // 1,5 carte visible : une carte et une marge d'un tiers (un perPage fractionnaire casse la fin de liste).
+        767: { perPage: 1, padding: { right: '33%' } },
       },
     })
 
