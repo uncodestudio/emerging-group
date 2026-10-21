@@ -29,7 +29,7 @@ export function init() {
 
     const splide = new window.Splide(component, {
       type: 'slide',
-      perPage: 4,
+      perPage: 3,
       perMove: 1,
       gap: '1.5rem',
       arrows: false,
