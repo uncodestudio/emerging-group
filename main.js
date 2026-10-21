@@ -10,7 +10,7 @@ const moduleDetectors = {
   fixedCta: { selector: '.fixed_cta', initFn: initFixedCta },
   articleToc: { selector: '.article_toc-list', initFn: initArticleToc },
   headerNumberMarquee: { selector: '.header-small-number_wrapper', initFn: initHeaderNumberMarquee },
-  mediaSlider: { selector: '.home-media_component', initFn: initMediaSlider },
+  mediaSlider: { selector: '.home-media_component.splide', initFn: initMediaSlider },
 }
 
 Object.entries(moduleDetectors).forEach(([name, { selector, initFn }]) => {

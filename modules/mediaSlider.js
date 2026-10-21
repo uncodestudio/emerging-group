@@ -1,31 +1,8 @@
 // Slider « They talk about us » (home) : collection list montée en Splide.
-// Splide n'est chargé par jsDelivr que sur les pages où la section existe (R-45).
-// Structure Webflow : .home-media_component > .home-media_track (wrapper) > .home-media_list > .home-media_item
+// Splide 4 est importé à la main dans le code de la page qui en a besoin (R-45), pas ici.
+// Structure Webflow : .home-media_component.splide > .home-media_track.splide__track
+//   > .home-media_list.splide__list > .home-media_item.splide__slide
 // Flèches : [data-carousel="prev"] et [data-carousel="next"] dans .home-media_component.
-
-const SPLIDE = 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist'
-
-const loaded = new Map()
-function load(tag, url) {
-  if (!loaded.has(url)) {
-    loaded.set(
-      url,
-      new Promise((resolve, reject) => {
-        const el = document.createElement(tag)
-        if (tag === 'link') {
-          el.rel = 'stylesheet'
-          el.href = url
-        } else {
-          el.src = url
-        }
-        el.onload = resolve
-        el.onerror = reject
-        document.head.appendChild(el)
-      })
-    )
-  }
-  return loaded.get(url)
-}
 
 function bindArrow(button, splide, direction) {
   if (!button) return
@@ -40,31 +17,13 @@ function bindArrow(button, splide, direction) {
   })
 }
 
-// init reste synchrone pour main.js ; une erreur de chargement est journalisée ici.
 export function init() {
-  mount().catch((error) => console.error('[mediaSlider]', error))
-}
+  if (!window.Splide) {
+    console.error('[mediaSlider] Splide absent : ajouter le script Splide dans le code de la page.')
+    return
+  }
 
-async function mount() {
-  const components = document.querySelectorAll('.home-media_component')
-  if (!components.length) return
-
-  await Promise.all([
-    load('link', `${SPLIDE}/css/splide-core.min.css`),
-    load('script', `${SPLIDE}/js/splide.min.js`),
-  ])
-
-  components.forEach((component) => {
-    const track = component.querySelector('.home-media_track')
-    const list = component.querySelector('.home-media_list')
-    const items = component.querySelectorAll('.home-media_item')
-    if (!track || !list || !items.length) return
-
-    component.classList.add('splide')
-    track.classList.add('splide__track')
-    list.classList.add('splide__list')
-    items.forEach((item) => item.classList.add('splide__slide'))
-
+  document.querySelectorAll('.home-media_component.splide').forEach((component) => {
     const prev = component.querySelector('[data-carousel="prev"]')
     const next = component.querySelector('[data-carousel="next"]')
 
@@ -95,7 +54,8 @@ async function mount() {
       })
     }
 
-    splide.on('mounted moved updated resized', update)
+    // « move » part au début du déplacement avec le nouvel index ; « moved » dépend de la fin de transition.
+    splide.on('mounted move updated resized', update)
     splide.mount()
     bindArrow(prev, splide, '<')
     bindArrow(next, splide, '>')
