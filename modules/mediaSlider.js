@@ -9,19 +9,15 @@ const QUOTE_SELECTOR = '.ranking-testimonies_component.splide'
 
 export const SELECTOR = `.home-media_component.splide, .testimonials_component.splide, ${QUOTE_SELECTOR}`
 
-// Points stylés dans Webflow : les classes Splide par défaut sont remplacées par celles du Designer.
+// Points posés dans le Designer ([data-carousel="dot"], le premier avec .is-active), pas générés par Splide.
 const QUOTE_OPTIONS = {
   type: 'slide',
   perPage: 1,
   perMove: 1,
   gap: '1.5rem',
   arrows: false,
-  pagination: true,
+  pagination: false,
   speed: 600,
-  classes: {
-    pagination: 'ranking-testimonies_dots',
-    page: 'ranking-testimonies_dot',
-  },
 }
 
 const CARDS_OPTIONS = {
@@ -78,10 +74,43 @@ export function init() {
       })
     }
 
+    const dots = bindDots(component, splide)
+    const updateDots = () => dots.forEach((dot, i) => dot.classList.toggle('is-active', i === splide.index))
+
     // « move » part au début du déplacement avec le nouvel index ; « moved » dépend de la fin de transition.
     splide.on('mounted move updated resized', update)
+    splide.on('mounted move', updateDots)
     splide.mount()
     bindArrow(prev, splide, '<')
     bindArrow(next, splide, '>')
   })
+}
+
+// Un point par slide : le premier point du Designer sert de modèle s'il en manque, les points en trop sont retirés.
+function bindDots(component, splide) {
+  const dots = [...component.querySelectorAll('[data-carousel="dot"]')]
+  if (!dots.length) return []
+
+  const count = component.querySelectorAll('.splide__slide').length
+  while (dots.length < count) {
+    const clone = dots[0].cloneNode(true)
+    clone.classList.remove('is-active')
+    dots[dots.length - 1].after(clone)
+    dots.push(clone)
+  }
+  dots.splice(count).forEach((dot) => dot.remove())
+
+  dots.forEach((dot, i) => {
+    dot.setAttribute('tabindex', '0')
+    dot.setAttribute('aria-label', `Go to slide ${i + 1}`)
+    const go = (event) => {
+      event.preventDefault()
+      splide.go(i)
+    }
+    dot.addEventListener('click', go)
+    dot.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') go(event)
+    })
+  })
+  return dots
 }
