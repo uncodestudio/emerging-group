@@ -5,6 +5,7 @@ import { init as initArticleToc } from './modules/articleToc.js'
 import { init as initHeaderNumberMarquee, SELECTOR as headerNumberMarqueeSelector } from './modules/headerNumberMarquee.js'
 import { init as initMediaSlider, SELECTOR as mediaSliderSelector } from './modules/mediaSlider.js'
 import { init as initAccordion } from './modules/accordion.js'
+import { init as initCategoryTabs, SELECTOR as categoryTabsSelector } from './modules/categoryTabs.js'
 
 const moduleDetectors = {
   rankingModal: { selector: '.ranking-list_item-wrapper', initFn: initRankingModal },
@@ -13,6 +14,7 @@ const moduleDetectors = {
   headerNumberMarquee: { selector: headerNumberMarqueeSelector, initFn: initHeaderNumberMarquee },
   mediaSlider: { selector: mediaSliderSelector, initFn: initMediaSlider },
   accordion: { selector: '[data-accordion]', initFn: initAccordion },
+  categoryTabs: { selector: categoryTabsSelector, initFn: initCategoryTabs },
 }
 
 Object.entries(moduleDetectors).forEach(([name, { selector, initFn }]) => {
