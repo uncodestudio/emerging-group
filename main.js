@@ -7,6 +7,7 @@ import { init as initHeaderNumberMarquee, SELECTOR as headerNumberMarqueeSelecto
 import { init as initMediaSlider, SELECTOR as mediaSliderSelector } from './modules/mediaSlider.js'
 import { init as initAccordion } from './modules/accordion.js'
 import { init as initCategoryTabs, SELECTOR as categoryTabsSelector } from './modules/categoryTabs.js'
+import { init as initSlideIn, SELECTOR as slideInSelector } from './modules/slideIn.js'
 
 const moduleDetectors = {
   rankingModal: { selector: '.ranking-list_item-wrapper', initFn: initRankingModal },
@@ -17,6 +18,7 @@ const moduleDetectors = {
   mediaSlider: { selector: mediaSliderSelector, initFn: initMediaSlider },
   accordion: { selector: '[data-accordion]', initFn: initAccordion },
   categoryTabs: { selector: categoryTabsSelector, initFn: initCategoryTabs },
+  slideIn: { selector: slideInSelector, initFn: initSlideIn },
 }
 
 Object.entries(moduleDetectors).forEach(([name, { selector, initFn }]) => {
