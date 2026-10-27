@@ -1,7 +1,7 @@
 // Lien d'évitement « Skip to main content » : premier élément focusable de la page, masqué tant qu'il n'a pas le focus.
 // Cible : le <main> de la page (pages de la refonte), sinon le bloc qui suit la nav (anciennes pages sans <main>).
 // La cible reçoit tabindex="-1" pour que le focus clavier y arrive vraiment. Tailles en px : les anciennes pages
-// n'ont pas la même taille de police racine que la refonte.
+// n'ont pas la même taille de police racine que la refonte. Sans transition : les anciennes pages animent tous les liens.
 export const SELECTOR = 'main, .navbar_component'
 
 const TARGET_ID = 'main-content'
@@ -29,6 +29,7 @@ export function init() {
       white-space: nowrap;
       text-decoration: none;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      transition: none;
     }
     .skip-link:focus { top: 16px; }
     #${target.id}:focus { outline: none; }
