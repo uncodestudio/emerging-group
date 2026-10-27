@@ -6,7 +6,8 @@
 //   [data-accordion-icon]       facultatif, l'icône
 //   [data-accordion-open]       facultatif, sur l'élément : ouvert au chargement
 // Attributs fixes posés dans Webflow : role="button", tabindex="0" et aria-controls sur la question, un id sur la réponse.
-// Le module ne gère que l'état (aria-expanded, is-open, hauteur). Repli : une réponse sans id (élément dupliqué) en reçoit un.
+// Le module ne gère que l'état (aria-expanded, is-open, hauteur). Repli : une réponse sans id, ou dont l'id est
+// en double (élément dupliqué), en reçoit un unique, repris dans aria-controls.
 // La classe is-open est posée sur l'élément et l'icône ouverts : l'animation de l'icône se règle dans Webflow.
 // Repris du starter (uncode-webflow-starter/modules/accordion.js), sans utils.js.
 const prefersReducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -44,8 +45,10 @@ export function init() {
   }
 
   items.forEach((item, index) => {
-    if (!item.content.id) {
-      item.content.id = `accordion-content-${index + 1}`
+    // Réponse sans id, ou id partagé par plusieurs réponses (élément dupliqué dans Webflow) : id unique.
+    const id = item.content.id
+    if (!id || document.querySelectorAll(`[id="${CSS.escape(id)}"]`).length > 1) {
+      item.content.id = `${id || 'accordion-content'}-${index + 1}`
       item.trigger.setAttribute('aria-controls', item.content.id)
     }
     const startOpen = item.el.hasAttribute('data-accordion-open')
