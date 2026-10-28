@@ -121,7 +121,8 @@
 .dl-story .dl-stackbar b{margin-left:5px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--dl-navy)}
 
 /* ---------- viz : barres horizontales (liste) ---------- */
-.dl-story .dl-bars{--lab:118px;--gap:12px;--val:52px;position:relative;display:flex;flex-direction:column;gap:9px;margin:0;padding:0;list-style:none}
+/* overflow visible : le rich text Webflow coupe ses listes (overflow hidden), et le libellé de la ligne de base est posé sous la liste */
+.dl-story .dl-bars{--lab:118px;--gap:12px;--val:52px;position:relative;display:flex;flex-direction:column;gap:9px;margin:0;padding:0;list-style:none;overflow:visible}
 .dl-story .dl-bars li{display:flex;justify-content:space-between;gap:12px;margin:0;padding:0}
 .dl-story .dl-bars .dl-lab{min-width:0;font-size:13.12px;font-weight:600;line-height:1.15;color:var(--dl-ink)}
 .dl-story .dl-bars .dl-val{font-size:13.76px;font-weight:800;font-variant-numeric:tabular-nums;color:var(--dl-navy)}
