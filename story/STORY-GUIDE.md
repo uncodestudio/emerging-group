@@ -37,7 +37,7 @@ Gabarit, à copier tel quel. Tu remplaces seulement le commentaire par tous les 
 </head>
 <body>
 <!-- Embed 1, Embed 2... ici, chacun avec son <div class="dl-story"> -->
-<script type="module" src="https://cdn.jsdelivr.net/gh/uncodestudio/emerging-group@fe54bba8bd123247aafa783f7b2997e324d50335/modules/dl-story.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/uncodestudio/emerging-group@9d1166a49c816984b889dcd738ea077d5844fc07/modules/dl-story.js"></script>
 </body>
 </html>
 ```
@@ -343,7 +343,7 @@ Cette annexe n'est pas pour Claude lors de la rédaction d'un article.
 Dépôt GitHub `uncodestudio/emerging-group`, épinglé sur un hash de commit (pas de tag) :
 
 ```html
-<script type="module" src="https://cdn.jsdelivr.net/gh/uncodestudio/emerging-group@fe54bba8bd123247aafa783f7b2997e324d50335/modules/dl-story.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/uncodestudio/emerging-group@9d1166a49c816984b889dcd738ea077d5844fc07/modules/dl-story.js"></script>
 ```
 
 Une seule balise. Le module charge lui-même `css/dl-story.css`, et seulement si la page contient un bloc `.dl-story` : sur une page sans article scrollytelling, rien n'est téléchargé.
