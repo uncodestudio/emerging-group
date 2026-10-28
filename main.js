@@ -9,7 +9,6 @@ import { init as initAccordion } from './modules/accordion.js'
 import { init as initCategoryTabs, SELECTOR as categoryTabsSelector } from './modules/categoryTabs.js'
 import { init as initSlideIn, SELECTOR as slideInSelector } from './modules/slideIn.js'
 import { init as initSkipLink, SELECTOR as skipLinkSelector } from './modules/skipLink.js'
-import { init as initScrollGallery, SELECTOR as scrollGallerySelector } from './modules/scrollGallery.js'
 
 const moduleDetectors = {
   rankingModal: { selector: '.ranking-list_item-wrapper', initFn: initRankingModal },
@@ -22,7 +21,6 @@ const moduleDetectors = {
   categoryTabs: { selector: categoryTabsSelector, initFn: initCategoryTabs },
   slideIn: { selector: slideInSelector, initFn: initSlideIn },
   skipLink: { selector: skipLinkSelector, initFn: initSkipLink },
-  scrollGallery: { selector: scrollGallerySelector, initFn: initScrollGallery },
 }
 
 Object.entries(moduleDetectors).forEach(([name, { selector, initFn }]) => {
