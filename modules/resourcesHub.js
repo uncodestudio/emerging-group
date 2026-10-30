@@ -12,11 +12,14 @@
 //   [data-resources-hide-empty] masque l'élément quand le compte est nul.
 // Recherche de l'en-tête : formulaire [data-resources-search] (GET /resources?q=…), traité sur place sur cette page.
 // Tri : options [fs-list-element="sort-trigger"] [fs-list-field] ; le libellé [data-resources-sort-label] reprend l'option choisie.
+// Menus : [data-resources-filter-label="product|type|year"] affiche les valeurs cochées (séparées par des virgules).
+// Option cochée : classe is-active sur son label (onglet ou case).
 export const SELECTOR = '#ressources-filters'
 
 const FIELDS = { theme: 'theme', format: 'type', product: 'product', year: 'year' }
 const LIBRARY_ID = 'resources'
 const URL_DELAY = 300
+const ACTIVE_CLASS = 'is-active'
 
 const prefersReducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches
 const norm = (value) => (value || '').trim().toLowerCase()
@@ -126,6 +129,37 @@ export function init() {
   // Les chiffres d'abord, tant que toutes les cards sont dans la page
   fillCounts(readItems())
 
+  // Libellés des menus (Product, Format, Year) : valeurs cochées séparées par des virgules, libellé d'origine sinon
+  const filterLabels = [...document.querySelectorAll('[data-resources-filter-label]')].map((el) => ({
+    el,
+    field: el.dataset.resourcesFilterLabel,
+    text: el.textContent.trim(),
+  }))
+  const refreshUi = () => {
+    // Classe is-active sur l'option cochée (Finsweet ne pose que is-list-active, fs-list-activeclass reste sans effet)
+    form.querySelectorAll('input[fs-list-field]').forEach((input) => {
+      input.closest('label')?.classList.toggle(ACTIVE_CLASS, input.checked)
+    })
+    filterLabels.forEach(({ el, field, text }) => {
+      const values = [...form.querySelectorAll(`input[fs-list-field="${field}"]:checked`)]
+        .map((input) => input.getAttribute('fs-list-value'))
+        .filter(Boolean)
+      el.textContent = values.length ? values.join(', ') : text
+    })
+  }
+
+  let urlTimer
+  const scheduleUrl = () => {
+    clearTimeout(urlTimer)
+    urlTimer = setTimeout(() => writeUrl(form), URL_DELAY)
+  }
+  form.addEventListener('change', () => {
+    refreshUi()
+    scheduleUrl()
+  })
+  form.addEventListener('input', scheduleUrl)
+  refreshUi()
+
   const initial = new URLSearchParams(location.search)
   if (hasFilterParams(initial)) {
     applyParams(form, initial)
@@ -134,14 +168,6 @@ export function init() {
     window.FinsweetAttributes = window.FinsweetAttributes || []
     window.FinsweetAttributes.push(['list', () => applyParams(form, initial, true)])
   }
-
-  let urlTimer
-  const scheduleUrl = () => {
-    clearTimeout(urlTimer)
-    urlTimer = setTimeout(() => writeUrl(form), URL_DELAY)
-  }
-  form.addEventListener('change', scheduleUrl)
-  form.addEventListener('input', scheduleUrl)
 
   // Liens de la page vers la bibliothèque filtrée : appliqués sur place
   document.addEventListener('click', (event) => {
