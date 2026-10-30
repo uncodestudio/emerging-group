@@ -1,6 +1,10 @@
 // Page Resources : filtres pilotés par l'adresse, recherche de l'en-tête, libellé du tri et chiffres calculés.
-// Filtres : Finsweet List v2 dans #ressources-filters (radios fs-list-field / fs-list-value, option « All » = valeur vide).
-// Adresse : ?theme=…&format=…&product=…&year=…&q=… (format correspond au champ « type » de Finsweet).
+// Filtres : Finsweet List v2 dans #ressources-filters (fs-list-field / fs-list-value). Onglets de thèmes en radios avec
+//   une option « All » (valeur vide) ; menus Product, Format et Year en cases à cocher (aucune cochée = tout).
+//   Webflow publie les radios avec des noms différents (l'API ne règle pas ce nom) : chaque radio reçoit ici le nom de
+//   son champ, pour former un vrai groupe.
+// Adresse : ?theme=…&format=…&product=…&year=…&q=… (format correspond au champ « type » de Finsweet), plusieurs valeurs
+//   séparées par des virgules pour les cases à cocher.
 //   Lue au chargement et sur les liens de la page vers /resources?… (appliquée sans rechargement), réécrite à chaque filtre.
 // Chiffres : [data-resources-count] compte les cards de la bibliothèque, lues avant tout filtrage.
 //   Valeur vide = toutes les ressources, "years" = années distinctes, sinon des critères « champ:valeur » séparés par « | »
@@ -55,15 +59,33 @@ const notify = (input) => {
   input.dispatchEvent(new Event('change', { bubbles: true }))
 }
 
-// Coche la radio du champ qui porte cette valeur, ou l'option « All » si la valeur est vide ou inconnue
-function setRadio(form, field, value, force) {
-  const radios = [...form.querySelectorAll(`input[type="radio"][fs-list-field="${field}"]`)]
-  const target =
-    radios.find((radio) => value && norm(radio.getAttribute('fs-list-value')) === norm(value)) ||
-    radios.find((radio) => radio.getAttribute('fs-list-value') === '')
-  if (!target || (target.checked && !force)) return
-  target.checked = true
-  notify(target)
+const splitValues = (value) =>
+  (value || '')
+    .split(',')
+    .map((part) => part.trim())
+    .filter(Boolean)
+
+// Radios : coche celle qui porte la première valeur, ou l'option « All » si aucune ne correspond.
+// Cases à cocher : coche celles qui portent les valeurs demandées, décoche les autres.
+function setField(form, field, values, force) {
+  const inputs = [...form.querySelectorAll(`input[fs-list-field="${field}"]`)]
+  const wanted = values.map(norm)
+  const radios = inputs.filter((input) => input.type === 'radio')
+  if (radios.length) {
+    const target =
+      radios.find((radio) => wanted.includes(norm(radio.getAttribute('fs-list-value')))) ||
+      radios.find((radio) => radio.getAttribute('fs-list-value') === '')
+    if (!target || (target.checked && !force)) return
+    target.checked = true
+    notify(target)
+    return
+  }
+  inputs.forEach((input) => {
+    const checked = wanted.includes(norm(input.getAttribute('fs-list-value')))
+    if (input.checked === checked && !force) return
+    input.checked = checked
+    notify(input)
+  })
 }
 
 function setSearch(form, query, force) {
@@ -74,15 +96,17 @@ function setSearch(form, query, force) {
 }
 
 function applyParams(form, params, force = false) {
-  Object.entries(FIELDS).forEach(([key, field]) => setRadio(form, field, params.get(key) || '', force))
+  Object.entries(FIELDS).forEach(([key, field]) => setField(form, field, splitValues(params.get(key)), force))
   setSearch(form, params.get('q') || '', force)
 }
 
 function writeUrl(form) {
   const params = new URLSearchParams()
   Object.entries(FIELDS).forEach(([key, field]) => {
-    const value = form.querySelector(`input[type="radio"][fs-list-field="${field}"]:checked`)?.getAttribute('fs-list-value')
-    if (value) params.set(key, value)
+    const values = [...form.querySelectorAll(`input[fs-list-field="${field}"]:checked`)]
+      .map((input) => input.getAttribute('fs-list-value'))
+      .filter(Boolean)
+    if (values.length) params.set(key, values.join(','))
   })
   const query = form.querySelector('[fs-list-field="*"]')?.value.trim()
   if (query) params.set('q', query)
@@ -93,6 +117,11 @@ function writeUrl(form) {
 export function init() {
   const form = document.querySelector(SELECTOR)
   if (!form) return
+
+  // Une radio par champ : même nom pour toutes les radios d'un champ
+  form.querySelectorAll('input[type="radio"][fs-list-field]').forEach((radio) => {
+    radio.name = radio.getAttribute('fs-list-field')
+  })
 
   // Les chiffres d'abord, tant que toutes les cards sont dans la page
   fillCounts(readItems())
